@@ -1,0 +1,18 @@
+<view class="text_container">
+  <scroll-view class="left"  scroll-y  scroll-into-view="{{leftId}}" style='height:{{hight}}'>
+    <block wx:for="{{arrs}}" wx:key="{{index}}" wx::key="{{index}}">
+      <text class="item {{activeIndex==index? 'show':''}}" bindtap="scrollposition" data-index="{{index}}">{{item.title}}</text>
+    </block>
+  </scroll-view>
+  <scroll-view class="right" scroll-y scroll-into-view="{{rightId}}" 
+    bindscroll="test"  style='height:{{hight}}'> 
+    <block wx:for="{{arrs}}" wx:key="{{index}}">
+      <view class="itemContent">
+        <text class="itemTitle" id="{{item.id}}">{{item.title}}</text>
+        <block wx:for="{{item.content}}"  wx:key="{{index}}">
+          <view class="class">{{item.name}}</view>
+        </block>  
+      </view>
+    </block> 
+  </scroll-view>
+</view>
